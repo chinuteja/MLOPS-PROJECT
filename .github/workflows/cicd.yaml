@@ -73,6 +73,9 @@ jobs:
 
       - name: Debug registry
         run: echo "Registry=${{ steps.login-ecr.outputs.registry }}"
+      - name: Set ECR registry
+        run: |
+            echo "ECR_REGISTRY=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com" >> $GITHUB_ENV
 
       - name: Pull latest image
         run: |
